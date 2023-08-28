@@ -18,7 +18,7 @@
 
 ```bash
 mkdir envs
-mamba create -y -p envs/workshop fastqc nanoplot filtlong flye bandage minimap2 tablet racon samtools igv
+mamba create -y -n workshop fastqc nanoplot filtlong flye bandage minimap2 tablet racon samtools igv
 conda activate envs/workshop
 # test
 NanoPlot --help
