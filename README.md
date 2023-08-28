@@ -4,9 +4,8 @@ A practical introduction to ONT & Data science for NGS Summerschool 2023.
 
 ## Schedule links for the workshop
 
-* [2023-08-28 - SOMEDAY: Welcome, Linux re-cap, and Nanopore](#0)  
-* [2023-08-28 - SOMEDAY: _De novo_ assembly and mapping](#1)  
-* [2023-08-29 - SOMEDAY: Final day, Miscellaneous](#3)  
+* [2023-08-28 - SOMEDAY: Welcome, Linux re-cap, QC Nanopore, _De novo_ assembly, mapping](#0)  
+* [2023-08-29 - SOMEDAY: Final day, Miscellaneous](#1)  
 
 
 ## Instructors
@@ -18,7 +17,7 @@ A practical introduction to ONT & Data science for NGS Summerschool 2023.
 > All events are held at Seestraße, room S06.A.01.011
 
 ### <a name="0"></a> Tuesday, 2023-08-28
-| Time        | Welcome & Linux re-cap & Nanopore _De novo_ assembly |
+| Time        | Welcome, Linux re-cap, QC Nanopore, _De novo_ assembly, mapping |
 | --          | --               |
 | 09:45-11:30 | Welcome & [introduction](day-welcome-linux-nanopore/general.md) |
 | 11:30-12:30 | Lunch break |
