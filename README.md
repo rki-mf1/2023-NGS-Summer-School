@@ -22,7 +22,7 @@ A practical introduction to ONT & Data science for NGS Summerschool 2023.
 | --          | --               |
 | 09:45-11:30 | Welcome & [introduction](day-welcome-linux-nanopore/general.md) |
 | 11:30-12:30 | Lunch break |
-| 12:45-15:30 | [Hands on](day-assembly-mapping/assembly.md) |
+| 12:45-15:30 | [Hands on 1](day-assembly-mapping/assembly.md) & [Hands on 2](day-polishing-variant-calling/polishing.md) |
 
 ### <a name="1"></a> Wednesday, 2023-08-29
 | Time        | Final day & Miscellaneous |
