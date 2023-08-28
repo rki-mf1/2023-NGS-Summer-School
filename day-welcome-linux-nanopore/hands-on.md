@@ -17,6 +17,7 @@
     * we will already install many tools that we will use over the next days!
 
 ```bash
+cd /scractch/$USER
 mkdir envs
 mamba create -y -p envs/workshop fastqc nanoplot filtlong flye bandage minimap2 tablet racon samtools igv
 conda activate envs/workshop
