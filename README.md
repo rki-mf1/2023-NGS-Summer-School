@@ -28,7 +28,7 @@ A practical introduction to ONT & Data science for NGS Summerschool 2023.
 | Time        | Final day & Miscellaneous |
 | --          | --               |
 | 09:00-10:30 | Debriefing Day 1 |
-| 10:30-12:00 | [Continue practical session](day-assembly-mapping/hands-on.md) ||
+| 10:30-12:00 | [Continue practical session](day-misc/README.md) ||
 
 
 ## Acknowledgement
