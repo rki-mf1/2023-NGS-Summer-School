@@ -21,13 +21,13 @@ A practical introduction to ONT, Linux, and bacteria long-read genome reconstruc
 | 09:45-10:15 | [Welcome, introduction & setup](day-welcome-linux-nanopore/general.md) |
 | 10:15-11:30 | [Linux crash course](day-welcome-linux-nanopore/linux.md) |
 | 11:30-12:30 | Lunch break |
-| 12:45-15:30 | [Hands on 1](day-assembly-mapping/assembly.md) & [Hands on 2](day-polishing-variant-calling/polishing.md) |
+| 12:45-16:00 | [Hands on 1](day-assembly-mapping/assembly.md) & [Hands on 2](day-polishing-variant-calling/polishing.md) |
 
 ### <a name="1"></a> Wednesday, 2023-08-30
 | Time        | Final day & Miscellaneous |
 | --          | --               |
-| 09:00-10:30 | Debriefing Day 1 |
-| 10:30-12:00 | [Continue practical session](day-misc/README.md) ||
+| 09:00-10:00 | Debriefing Day 1 |
+| 10:00-12:00 | [Continue practical session](day-misc/README.md) ||
 
 
 ## Acknowledgement
