@@ -36,17 +36,6 @@ Bandage &
 
 __Tools that have a graphical user interface can cause problems on a cluster machine__.
 
-Alternative, if you can't get Bandage running with the above commands:
-* go to https://rrwick.github.io/Bandage
-* download the correct version for your Operating system, e.g.
-    * download Windows version
-        * or do a `wget https://github.com/rrwick/Bandage/releases/download/v0.8.1/Bandage_Windows_v0_8_1.zip`
-    * unzip 
-    * start `Bandage.exe` 
-    * load graph file produced by flye and "Draw graph"
-
-How many contigs did the `flye` assembly produce for the _E. coli_ sample? 
-
 ### Mapping (minimap2)
 
 Now, we want to map the long reads to the assembly you calculated to visualize them.
