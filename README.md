@@ -1,6 +1,6 @@
 # Workshop Nanopore Bioinformatics
 
-A practical introduction to <...> for <...> in the context of the <...> project.
+A practical introduction to ONT & Data science for NGS Summerschool 2023.
 
 ## Schedule links for the workshop
 
