@@ -43,7 +43,13 @@ If you are using your own (Linux) laptop or one provided for the workshops you a
     * Select "Session": "SSH"
     * "Remote host": "provided login node name" 
     * "Username": RKI account name
+ 
+### Filezilla access
 
+* Install `Filezilla` via the RKI Software Kiosk
+* Detailed information can be found in the RKI Confluence, search for:"
+    * "HPC-Datentransfer mit FileZilla"
+  
 ### HPC usage
 
 * Detailed information on HPC infrastructure and usage can be found in the RKI Confluence, search for:
