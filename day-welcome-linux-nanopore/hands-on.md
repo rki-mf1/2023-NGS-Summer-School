@@ -48,27 +48,29 @@ cd nanopore-workshop
 
 ### Get some example long-read data 
 
-Get some example data. For example, find some public Nanopore read data for _E. coli_ on  [ENA](https://www.ebi.ac.uk/ena/browser/view/SRR12012232).
+Get some example data. For example,
 
 ```bash
-wget "ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR120/032/SRR12012232/SRR12012232_1.fastq.gz"
-ls -lah SRR12012232_1.fastq.gz
-# You just downloaded 397MB of compressed Nanopore raw reads
-# Let's place this file in a new folder to keep a clean folder structure
-# Are you still in your workshop folder that you just created? 
-pwd
-# If so, make a new folder and move/rename the downloaded file:
-mkdir input-data
-mv SRR12012232_1.fastq.gz input-data/eco.nanopore.fastq.gz
+cp /scratch/Tausch/2023-RKI-NGS-Workshop/data/previously-nanopore-sequenced/$RUN /scratch/$USER/nanopore-workshop/data
 # double-check that everything is in place:
-ls -lah input-data/
+ls -lah
 # all good? Let's move on to QC!
+```
+
+### ONT basecall fasta output 
+
+Nanopore data can be basecalled during the run. The output is sorted into barcodes and in every folder are a list of compressed fasta files. These files need to be combined into one file for further use.
+
+```bash
+cd nanopore-workshop
+cat /scratch/Tausch/2023-RKI-NGS-Workshop/data/previously-nanopore-sequenced/230217_GI1-4_Run23-047/fastq_pass/barcode01/*.fastq.gz > 230217_GI1-4_Run23-047.fastq.gz
+ls -lah
 ```
 
 ### Quality control (NanoPlot)
 
 ```bash
-NanoPlot -t 4 --fastq input-data/eco.nanopore.fastq.gz --title "Raw reads" \
+NanoPlot -t 4 --fastq data/eco.nanopore.fastq.gz --title "Raw reads" \
     --color darkslategrey --N50 --loglength -f png -o nanoplot/raw
 ```
 [Publication](https://academic.oup.com/bioinformatics/advance-article/doi/10.1093/bioinformatics/bty149/4934939) | [Code](https://github.com/wdecoster/NanoPlot)
