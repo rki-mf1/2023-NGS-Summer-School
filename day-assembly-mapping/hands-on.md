@@ -2,7 +2,7 @@
 
 ## Hands-on
 
-We will continue first with the raw FASTQ data should be located in your folder `data/230217_GI1-4_Run23-047-filtered.fastq`. Remember, that you already length-filtered the data producing a file `eco-filtered.fastq`. Use this as an input for the _de novo_ assembly. Remember to activate your Conda environment or install the necessary tools if not available.
+We will continue first with the raw FASTQ data should be located in your folder `data/230217_GI1-4_Run23-047-filtered.fastq`. Remember, that you already length-filtered the data. Use this as an input for the _de novo_ assembly. Remember to activate your Conda environment or install the necessary tools if not available.
 
 ### _De novo_ assembly (Flye)
 
