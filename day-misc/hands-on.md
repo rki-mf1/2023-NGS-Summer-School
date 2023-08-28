@@ -11,7 +11,7 @@ Use `assembly-stats` to check the quality of some of your assemblies produced du
 ```bash
 mamba create -y -p envs/assembly-stats assembly-stats
 conda activate envs/assembly-stats
-# Just an example, for the E. coli flye assembly
+# Just an example, for the flye assembly
 assembly-stats flye_output/assembly.fasta
 ```
 
