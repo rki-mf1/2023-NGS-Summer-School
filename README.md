@@ -1,30 +1,22 @@
-# Disclaimer (delete this in your fork)
-
-**This is the main repository!** If you are planning a new workshop, fork this one and adjust everything you need in your forked repository. If you want to add new content or update existing tools/commands, consider to do these changes first into this main repository via a Pull Request and before you start working on your own workshop specifics!
-
-Below, you find all content of this repository. Please also notice the placeholders "<...>" theat you should adjust!
-
----
-
 # Workshop Nanopore Bioinformatics
 
 A practical introduction to <...> for <...> in the context of the <...> project.
 
 ## Schedule links for the workshop
 
-* [YYYY-MM-DD - SOMEDAY: Welcome, Linux re-cap, and Nanopore](#0)  
-* [YYYY-MM-DD - SOMEDAY: _De novo_ assembly and mapping](#1)  
+* [2023-08-28 - SOMEDAY: Welcome, Linux re-cap, and Nanopore,_De novo_ assembly and mapping](#0,#1)  
+* [2023-08-29 - SOMEDAY: _De novo_ assembly and mapping](#2)  
 * [YYYY-MM-DD - SOMEDAY: Assembly polishing and variant calling](#2)  
 * [YYYY-MM-DD - SOMEDAY: Final day, Miscellaneous](#3)  
 
 
 ## Instructors
 
-* <...>, <...>, and <...>
+* Christian Blumenscheit and Martin Hölzer
 
 ## Schedule
 
-> All events are held at <...>, room <...>
+> All events are held at Seestraße, room S06.A.01.011
 
 ### <a name="0"></a> SOMEDAY, DATE
 | Time        | Welcome & Linux re-cap & Nanopore |
