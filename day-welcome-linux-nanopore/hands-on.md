@@ -47,7 +47,7 @@ cd nanopore-workshop
 Get some example data. For example,
 
 ```bash
-cp /scratch/Tausch/2023-RKI-NGS-Workshop/data/previously-nanopore-sequenced/230217_GI1-4_Run23-047 /scratch/$USER/nanopore-workshop/data
+cp /scratch/Tausch/2023-RKI-NGS-Workshop/data/previously-nanopore-sequenced/230217_GI1-4_Run23-047 /scratch/$USER/nanopore-workshop/data/
 # double-check that everything is in place:
 ls -lah
 # all good? Let's move on to QC!
@@ -59,7 +59,7 @@ Nanopore data can be basecalled during the run. The output is sorted into barcod
 
 ```bash
 cd nanopore-workshop
-cat /scratch/Tausch/2023-RKI-NGS-Workshop/data/previously-nanopore-sequenced/230217_GI1-4_Run23-047/fastq_pass/barcode01/*.fastq.gz > 230217_GI1-4_Run23-047.fastq.gz
+cat data/230217_GI1-4_Run23-047/fastq_pass/barcode01/*.fastq.gz > data/230217_GI1-4_Run23-047.fastq.gz
 ls -lah
 ```
 
