@@ -12,22 +12,31 @@ Polish the _E. coli_ assembly you produced yesterday with `flye`. Use the filter
 
 ```bash
 # map
-minimap2 -ax map-ont flye_output/assembly.fasta eco-filtered.fastq > eco-mapping.sam
+minimap2 -ax map-ont flye_output/assembly.fasta 230217_GI1-4_Run23-047-filtered.fastq > 230217_GI1-4_Run23-047-mapping.sam
 # first, we need to convert the SAM file into a sorted BAM file to load it subsequently in IGV
-samtools view -bS eco-mapping.sam | samtools sort -@ 4 > eco-mapping.sorted.bam  
-samtools index eco-mapping.sorted.bam
+samtools view -bS 230217_GI1-4_Run23-047-mapping.sam | samtools sort -@ 4 > 230217_GI1-4_Run23-047-mapping.sorted.bam  
+samtools index 230217_GI1-4_Run23-047-mapping.sorted.bam
 ```
 
 #### Assembly polishing (Racon)
 
 ```bash
 # run racon, as input you need the reads, the mapping file, and the assembly you want to polish
-racon -t 4 eco-filtered.fastq eco-mapping.sam flye_output/assembly.fasta > eco-consensus-racon.fasta
+racon -t 4 230217_GI1-4_Run23-047-filtered.fastq 230217_GI1-4_Run23-047-mapping.sam flye_output/assembly.fasta > 230217_GI1-4_Run23-047-consensus-racon.fasta
 
 # map to new consensus
-minimap2 -ax map-ont eco-consensus-racon.fasta eco-filtered.fastq > eco-consensus-mapping.sam
+minimap2 -ax map-ont 230217_GI1-4_Run23-047-consensus-racon.fasta 230217_GI1-4_Run23-047-filtered.fastq > 230217_GI1-4_Run23-047-consensus-mapping.sam
 
 # now look at it in tablet or IGV again
+igv &
+
+# load mapping file as 'primary assembly'
+# ->  230217_GI1-4_Run23-047-consensus-mapping.sam
+
+# load assembly file as 'Reference/consensus file'
+# ->  flye_output/assembly.fasta
+
+
 ```
 [Publication](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5411768/) | [Code](https://github.com/isovic/racon)
 
