@@ -2,20 +2,19 @@
 
 ## Hands-on
 
-We will continue first with the _E. coli_ data from yesterday. The raw FASTQ data should be located in your folder `input-data/eco.nanopore.fastq.gz`. Remember, that you already length-filtered the data producing a file `eco-filtered.fastq`. Use this as an input for the _de novo_ assembly. Remember to activate your Conda environment or install the necessary tools if not available.
+We will continue first with the raw FASTQ data should be located in your folder `data/230217_GI1-4_Run23-047-filtered.fastq`. Remember, that you already length-filtered the data producing a file `eco-filtered.fastq`. Use this as an input for the _de novo_ assembly. Remember to activate your Conda environment or install the necessary tools if not available.
 
 ### _De novo_ assembly (Flye)
 
 * use your quality-checked and filtered reads for input 
-* note that we're using `--nano-raw` in this example because the _E. coli_ data is a bit older
-    * with newer ONT chemistry (e.g. >R10 flow cells) you should use `--nano-hq`, see also the `--help` of `Flye`
+* note that we're using `--nano-hq` with newer ONT chemistry
 * the output folder is called `flye_output`
 * we use `--meta` to activate the "expect metagenome/uneven coverage" mode which can help to recover full plasmid sequences
 * we tell the tool that the expected `--genome-size` is 5 Mbp
 ```bash
 # run the assembly, this will take a bit time
 conda activate envs/workshop
-flye --nano-raw eco-filtered.fastq -o flye_output -t 4 --meta --genome-size 5M
+flye --nano-hq 230217_GI1-4_Run23-047-filtered.fastq -o flye_output -t 10 --meta --genome-size 5M
 # the final output genome assembly will be in flye_output/assembly.fasta
 ```
 
@@ -23,7 +22,7 @@ While this is running, check the original publication and the GitHub repository 
 
 [Publication](https://doi.org/10.1038/s41587-019-0072-8) | [Code](https://github.com/fenderglass/Flye)
 
-### Visualization of the assembly (Bandage)
+### Visualization of the assembly (Bandage) -> not possible on HPC 
 ```bash
 # open the GUI
 Bandage &
@@ -32,6 +31,7 @@ Bandage &
 # ->  flye_output/assembly_graph.gfa
 # click "draw graph"
 ```
+
 [Publication](http://bioinformatics.oxfordjournals.org/content/31/20/3350) | [Code](https://rrwick.github.io/Bandage/)
 
 __Tools that have a graphical user interface can cause problems on a cluster machine__.
@@ -52,7 +52,7 @@ How many contigs did the `flye` assembly produce for the _E. coli_ sample?
 Now, we want to map the long reads to the assembly you calculated to visualize them.
 
 ```bash
-minimap2 -ax map-ont flye_output/assembly.fasta eco-filtered.fastq > eco-mapping.sam
+minimap2 -ax map-ont flye_output/assembly.fasta 230217_GI1-4_Run23-047-filtered.fastq > 230217_GI1-4_Run23-047-mapping.sam
 ```
 [Publication](https://doi.org/10.1093/bioinformatics/bty191) | [Code](https://github.com/lh3/minimap2)
 
@@ -62,8 +62,8 @@ Inspect the resulting SAM file. Check the [SAM format specification](https://sam
 
 ```bash
 # first, we need to convert the SAM file into a sorted BAM file to load it subsequently in IGV
-samtools view -bS eco-mapping.sam | samtools sort -@ 4 > eco-mapping.sorted.bam  
-samtools index eco-mapping.sorted.bam
+samtools view -bS 230217_GI1-4_Run23-047-mapping.sam | samtools sort -@ 4 > 230217_GI1-4_Run23-047-mapping.sorted.bam  
+samtools index 230217_GI1-4_Run23-047-mapping.sorted.bam
 
 # start IGV browser and load the assembly (FASTA) and BAM file, inspect the output
 igv &
@@ -76,7 +76,7 @@ igv &
 tablet &
 
 # load mapping file as 'primary assembly'
-# ->  eco-mapping.sam
+# ->  230217_GI1-4_Run23-047-mapping.sam
 
 # load assembly file as 'Reference/consensus file'
 # ->  flye_output/assembly.fasta
@@ -84,44 +84,3 @@ tablet &
 [Publication](http://dx.doi.org/10.1093/bib/bbs012) | [Code](https://ics.hutton.ac.uk/tablet/)
 
 __Alternative ways to visualize such a mapping are given by (commercial software) such as Geneious or CLC Genomic Workbench.__
-
-
-## Exercise
-
-For the following tasks, you will use now again the Nanopore FASTQ data of _Salmonella_ from [ENA](https://www.ebi.ac.uk/ena/browser/view/PRJNA887350). Remember, the Nanopore data corresponds to the Illumina samples you already worked on:
-
-| Sample ID | Nanopore read ID | Illumina read ID |
-| -- | -- |  -- |
-| 8640 | SRR21833890 | SRR21833889 |
-| 9866-12 | SRR21833871 | SRR21833888 |
-| 8640-41 | SRR21833878 | SRR21833877 |
-
-There are three Nanopore samples, you can work on all of them or pick one! The data is a bit older, from 2019 and was sequenced on a MinION flow cell (FLO-MIN106). Basecalling was done with the `FAST` basecalling model. 
-
-_De novo_ assemble the genome(s). Remember, that you qc'ed the data already and you might want to use the length-filtered reads. If not yet done, check out the [flye paper](https://www.nature.com/articles/s41587-019-0072-8) (**Maybe first start the assembly, then read the paper while it is running**). Install `flye` if not available and run on the filtered reads. Investigate the results via `Bandage`. How good is your assembly? Remember that you also calculated a _de novo_ assembly based on the short Illumina reads using `SPAdes`? If so, also load the `*.gfa` graph file from your previous `SPAdes` results and for the corresponding _Salmonella_ sample and compare them. 
-
-Now, annotate genes in your assembly like you learned for Illumina data before (e.g. `Prokka`, `Bakta`, `Abricate` ...). How many genes do you find (CDS, hypothetical genes)? Can you compare that to Illumina? Is it better? Worse?
-
-## Bonus 1
-
-Try a different assembly tool, e.g. other long-read assemblers are given and compared here: https://www.frontiersin.org/articles/10.3389/fmicb.2022.796465/full
-
-## Bonus 2
-
-Remember the R10.4.1 data you downloaded on day 1 for the Bonus tasks? That one:
-
-```sh
-wget --no-check-certificate https://osf.io/7f8jz/download -O 2023-08-nanopore-workshop-example-bacteria.zip
-```
-
-Also assemble the FASTQ data that is in this archive. Inspect the assembly graph. Can you find out which bacterial species is in the sample? 
-
-## Bonus 3
-
-Download a reference genome FASTA for _E. coli_ from [NCBI](https://www.ncbi.nlm.nih.gov/genome/?term=txid562[orgn]&shouldredirect=false). Also download an annotation file (e.g. in GFF format). Now, use `minimap2` to map your _E. coli_ reads to the reference genome. Visualize the mapping in IGV and also load the annotation file as an additional track. Now, specifically investigate the two genome regions:
-
-* position 1,325,600 bp
-* position 1,362,500 bp
-
-What do you see in both regions? Can you tell if a gene located in one or the other region is somehow affected by the event you can observe?
-
