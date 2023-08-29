@@ -6,6 +6,4 @@ Now, we will mainly look into _de novo_ assembly (genome reconstruction) using l
 
 Once you have a genome assembly in FASTA format, you can continue with annotation.
 
-**Because there is not really a difference in the tools and steps to perform annotation on an Illumina- or Nanopore-based assembly, we will skip this part here and leave that to the excercise.**
-
 [Next: Mapping](mapping.md)

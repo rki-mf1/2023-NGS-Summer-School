@@ -2,7 +2,7 @@
 
 ## Hands-on
 
-We will continue first with the raw FASTQ data should be located in your folder `data/230217_GI1-4_Run23-047-filtered.fastq`. Remember, that you already length-filtered the data. Use this as an input for the _de novo_ assembly. Remember to activate your Conda environment or install the necessary tools if not available.
+We will continue first with the FASTQ data that should be located in your folder `data/barcode01-filtered.fastq`. Remember, that you already length-filtered the data. Use this as an input for the _de novo_ assembly. Remember to activate your Conda environment or install the necessary tools if not available.
 
 ### _De novo_ assembly (Flye)
 
@@ -14,7 +14,7 @@ We will continue first with the raw FASTQ data should be located in your folder 
 ```bash
 # run the assembly, this will take a bit time
 conda activate envs/workshop
-flye --nano-hq 230217_GI1-4_Run23-047-filtered.fastq -o flye_output -t 10 --meta --genome-size 5M
+flye --nano-hq barcode01-filtered.fastq -o flye_output -t 10 --meta --genome-size 5M
 # the final output genome assembly will be in flye_output/assembly.fasta
 ```
 
@@ -41,7 +41,7 @@ __Tools that have a graphical user interface can cause problems on a cluster mac
 Now, we want to map the long reads to the assembly you calculated to visualize them.
 
 ```bash
-minimap2 -ax map-ont flye_output/assembly.fasta 230217_GI1-4_Run23-047-filtered.fastq > 230217_GI1-4_Run23-047-mapping.sam
+minimap2 -ax map-ont flye_output/assembly.fasta barcode01-filtered.fastq > barcode01-mapping.sam
 ```
 [Publication](https://doi.org/10.1093/bioinformatics/bty191) | [Code](https://github.com/lh3/minimap2)
 
@@ -51,8 +51,8 @@ Inspect the resulting SAM file. Check the [SAM format specification](https://sam
 
 ```bash
 # first, we need to convert the SAM file into a sorted BAM file to load it subsequently in IGV
-samtools view -bS 230217_GI1-4_Run23-047-mapping.sam | samtools sort -@ 4 > 230217_GI1-4_Run23-047-mapping.sorted.bam  
-samtools index 230217_GI1-4_Run23-047-mapping.sorted.bam
+samtools view -bS barcode01-mapping.sam | samtools sort -@ 4 > barcode01-mapping.sorted.bam  
+samtools index barcode01-mapping.sorted.bam
 
 # start IGV browser and load the assembly (FASTA) and BAM file, inspect the output
 igv &
