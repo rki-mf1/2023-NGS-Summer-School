@@ -10,6 +10,12 @@
 
 Please Note: If possible, you can instead also work with your own data that you generated yesterday. We can discuss this live during the workshop.
 
+Here is another data set you might use when you are on your own HPC and c&p is difficult: 
+
+```bash
+wget --no-check-certificate https://osf.io/7f8jz/download -O 2023-08-nanopore-workshop-example-bacteria.zip
+```
+
 ## Hands-on
 
 ### Create a folder for the hands-on work
