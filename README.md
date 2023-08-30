@@ -13,21 +13,30 @@ A practical introduction to ONT, Linux, and bacteria long-read genome reconstruc
 
 ## Schedule
 
-> All events are held at Seestraße, room S06.A.01.011
+> All events are held at Seestraße, house 6 at some room ;) 
 
 ### <a name="0"></a> Tuesday, 2023-08-29
 | Time        | Welcome, Linux re-cap, QC Nanopore, _De novo_ assembly, mapping |
 | --          | --               |
-| 09:45-10:15 | [Welcome, introduction & setup](day-welcome-linux-nanopore/general.md) |
+| 09:45-10:15 | [Welcome & introduction](day-welcome-linux-nanopore/general.md) |
 | 10:15-11:30 | [Linux crash course](day-welcome-linux-nanopore/linux.md) |
-| 11:30-12:30 | Lunch break |
-| 12:45-16:00 | [Hands on 1](day-assembly-mapping/assembly.md) & [Hands on 2](day-polishing-variant-calling/polishing.md) |
+| 11:30-12:00 | [Nanopore intro](day-welcome-linux-nanopore/nanopore.md) |
+| 12:00-13:00 | Lunch break |
+| 13:00-14:00 | [Hands on 1: Linux, Mamba, get data, ONT QC](day-welcome-linux-nanopore/hands-on.md) |
+| 14:00-15:00 | [Intro Assembly](day-assembly-mapping/assembly.md) & [Intro Mapping](day-assembly-mapping/mapping.md)  |
+| 15:00-16:00 | [Hands on 2: _de novo_ Assembly and Mapping](day-assembly-mapping/hands-on.md) |
 
 ### <a name="1"></a> Wednesday, 2023-08-30
 | Time        | Final day & Miscellaneous |
 | --          | --               |
-| 09:00-10:00 | Debriefing Day 1 |
-| 10:00-12:00 | [Continue practical session](day-misc/README.md) ||
+| 09:00-09:30 | Setup & Debriefing Day 1 |
+| 09:00-11:30 | Working on own sequencing data |
+| 11:30-12:00 | Wrap up |
+
+### Additional content for further study
+
+* [Assembly polishing](day-polishing-variant-calling/README.md)
+* [Assembly stats, assembly comparison, assembly quality](day-misc/README.md)
 
 
 ## Acknowledgement
