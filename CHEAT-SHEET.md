@@ -104,7 +104,7 @@ igv &
 
 ```bash
 # run racon, as input you need the reads, the mapping file, and the assembly you want to polish
-racon -t 4 <file>-filtered.fastq 2<file>-mapping.sam flye_output_<file>/assembly.fasta > <file>-consensus-racon.fasta
+racon -t 4 <file>-filtered.fastq <file>-mapping.sam flye_output_<file>/assembly.fasta > <file>-consensus-racon.fasta
 
 # map to new consensus
 minimap2 -ax map-ont <file>-consensus-racon.fasta <file>-filtered.fastq > <file>-consensus-mapping.sam
