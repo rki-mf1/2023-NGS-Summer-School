@@ -8,7 +8,7 @@
 /scratch/Tausch/2023-RKI-NGS-Workshop/data/ngs_kurs
 ```
 
-##1. Prepare environment
+## 1. Prepare environment
 
 * **Note**: Bioinformatics tools are regulary updated and input parameters might change (use `--help` or `-h` to see the manual for a tool!)
 * Install most of them into our environment
@@ -28,16 +28,16 @@ mkdir nanopore-workshop
 cd nanopore-workshop
 ```
 
-##2. Copy data
+## 2. Copy data
 
 ```bash
-cp /scratch/Tausch/2023-RKI-NGS-Workshop/data/ngs_kurs/<folder> /scratch/$USER/nanopore-workshop/data/
+cp -r /scratch/Tausch/2023-RKI-NGS-Workshop/data/ngs_kurs/<folder> /scratch/$USER/nanopore-workshop/data/
 # double-check that everything is in place:
 ls -lah
 # all good? Let's move on to QC!
 ```
 
-###2.1 combine data (if needed) 
+### 2.1 combine data (if needed) 
 
 ```bash
 cd nanopore-workshop
@@ -45,7 +45,7 @@ cat <folder>/barcodeXX/*.fastq.gz > data/<file>.fastq.gz
 ls -lah
 ```
 
-##3. QC ONT data
+## 3. QC ONT data
 
 ```bash
 cd nanopore-workshop
@@ -66,7 +66,7 @@ NanoPlot -t 4 --fastq <file>-filtered.fastq --title "Filtered reads" \
 [Code](https://github.com/rrwick/Filtlong)
 
 
-##4. _De novo_ assembly (Flye)
+## 4. _De novo_ assembly (Flye)
 
 ```bash
 # run the assembly, this will take a bit time
@@ -74,7 +74,7 @@ flye --nano-raw <file>-filtered.fastq -o flye_output_<file> -t <cores> --meta --
 # the final output genome assembly will be in flye_output/assembly.fasta
 ```
 
-##5. Mapping (minimap2)
+## 5. Mapping (minimap2)
 
 ```bash
 minimap2 -ax map-ont flye_output_<file>/assembly.fasta <file>-filtered.fastq > <file>-mapping.sam
@@ -98,9 +98,9 @@ igv &
 # ->  flye_output_<file>/assembly.fasta
 ```
 
-##6. Assembly polishing 
+## 6. Assembly polishing 
 
-###6.1 First Racon
+### 6.1 First Racon
 
 ```bash
 # run racon, as input you need the reads, the mapping file, and the assembly you want to polish
@@ -119,7 +119,7 @@ igv &
 # ->  flye_output_<file>/assembly.fasta
 ```
 
-###6.2 Second Medaka
+### 6.2 Second Medaka
 
 
 `Medaka` is not in your current `workshop` environment because it was conflicting with the other tools. That's why we need a separate Conda environment for `Medaka`:
