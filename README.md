@@ -11,6 +11,10 @@ A practical introduction to ONT, Linux, and bacteria long-read genome reconstruc
 
 * Christian Blumenscheit and Martin Hölzer (MF1 _Genome Competence Center_)
 
+## Summary Cheat Sheet
+
+[Cheat Sheet](CHEAT-SHEET.md)
+
 ## Schedule
 
 > All events are held at Seestraße, house 6 at some room ;) 
